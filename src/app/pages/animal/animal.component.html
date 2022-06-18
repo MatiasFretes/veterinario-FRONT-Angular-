@@ -1,0 +1,69 @@
+<h1>Animal</h1>
+<hr>
+
+<div class="row text-right">
+    <div class="col">
+        <button class="btn btn-danger" routerLink="/animales">
+            <i class="fa fa-arrow-left"></i>
+            Regresar
+        </button>
+    </div>
+</div>
+
+<div class="row animated fadeIn faster">
+    <div class="col">
+        <form (ngSubmit)="guardar( f )" #f="ngForm">
+            <div class="form-group">
+                <label>Nombre:</label>
+                <input type="text" 
+                class="form-control" 
+                placeholder="Nombre del Animal" 
+                required
+                [(ngModel)] = "animal.nombre"
+                name="nombre"
+                >
+            </div>
+
+            <div class="form-group">
+                <label>Peso: </label>
+                <input type="number" 
+                class="form-control" 
+                placeholder="Peso del Animal" 
+                required
+                [(ngModel)] = "animal.peso"
+                name="peso"
+                >
+            </div>
+
+            <div class="form-group">
+                <label>Imagen: </label>
+                <div class="custom-file">
+                    <input 
+                    (change)="capturarFile($event)"
+                    type="file" 
+                    class="form-control" 
+                    id="imagen"
+                    [(ngModel)] = "animal.imagen"
+                    name="file"
+                    >
+                    
+                </div>
+            </div>
+          
+            <div class="form-group d-flex justify-content-center" *ngIf="!previsualizacion">
+                <img src="assets/drop-images.png">
+            </div>
+
+            <div class="form-group d-flex justify-content-center" *ngIf="previsualizacion">
+                <img [src]="previsualizacion" alt="">
+            </div>
+            <hr>
+            <div class="for-group text-center">
+                <button type="submit" class="btn btn-primary w-25">
+                    <i class="fa fa-save"></i>
+                    Guardar
+                </button>
+            </div>
+        </form>
+    </div>
+</div>
