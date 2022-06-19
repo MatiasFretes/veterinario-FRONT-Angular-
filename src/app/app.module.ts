@@ -5,13 +5,15 @@ import { AppComponent } from './app.component';
 import { AnimalComponent } from './pages/animal/animal.component';
 import { AnimalesComponent } from './pages/animales/animales.component';
 import { FormsModule } from '@angular/forms';
-import { HttpClientModule } from '@angular/common/http'; 
+import { HttpClientModule } from '@angular/common/http';
+import { NavbarComponent } from './components/shared/navbar/navbar.component'; 
 
 @NgModule({
   declarations: [
     AppComponent,
     AnimalComponent,
-    AnimalesComponent
+    AnimalesComponent,
+    NavbarComponent
   ],
   imports: [
     BrowserModule,

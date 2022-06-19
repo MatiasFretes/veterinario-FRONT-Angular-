@@ -14,7 +14,7 @@
 }
 
 .card .content{
-    background: rgba(0,0,0,0.6);
+    background: rgba(26, 11, 57, 0.6);
     position:absolute;
     height: 100%;
     width: 100%;
@@ -34,4 +34,15 @@
 
 .card:hover .pic .title{
     opacity: 0;
+}
+
+.text-right .btn{
+    background-color: #3e3782;
+    color: #fff;
+}
+
+.text-right .btn:hover{
+    color: #3e3782;
+    background-color: rgb(255, 255, 255);
+    border-color: black;
 }
