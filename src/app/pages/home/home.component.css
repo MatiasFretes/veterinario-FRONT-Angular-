@@ -1,0 +1,25 @@
+.portada{
+    width: 80vw;
+    justify-content: space-between;
+}
+
+.portada .logo{
+    width: 400px;
+    height: 120px;    
+    overflow: hidden;
+    align-items: center;
+    justify-content: right;
+}
+
+.portada .logo #logoimg{
+    height: 70px;
+}
+
+.portada .logo h4{
+    color: #3e3782;
+}
+
+.portada .home-portada h1{
+    color: #3e3782; 
+}
+
