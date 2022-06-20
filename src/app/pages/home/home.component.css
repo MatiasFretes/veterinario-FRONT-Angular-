@@ -23,3 +23,15 @@
     color: #3e3782; 
 }
 
+.card{
+    background: #3f378200;
+    display: flex;
+    align-items: center;
+    height: 180px;
+}
+
+.card:hover{
+    background: #5a5497;
+    color: #fff;
+    height: 100%;
+}

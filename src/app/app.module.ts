@@ -7,7 +7,11 @@ import { AnimalesComponent } from './pages/animales/animales.component';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { NavbarComponent } from './components/shared/navbar/navbar.component';
-import { HomeComponent } from './pages/home/home.component'; 
+import { HomeComponent } from './pages/home/home.component';
+import { PropietariosComponent } from './pages/propietarios/propietarios.component';
+import { VeterinariosComponent } from './pages/veterinarios/veterinarios.component';
+import { HistorialComponent } from './pages/historial/historial.component';
+import { ContactoComponent } from './pages/contacto/contacto.component'; 
 
 @NgModule({
   declarations: [
@@ -15,7 +19,11 @@ import { HomeComponent } from './pages/home/home.component';
     AnimalComponent,
     AnimalesComponent,
     NavbarComponent,
-    HomeComponent
+    HomeComponent,
+    PropietariosComponent,
+    VeterinariosComponent,
+    HistorialComponent,
+    ContactoComponent
   ],
   imports: [
     BrowserModule,

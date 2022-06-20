@@ -10,22 +10,22 @@ export const navbarData = [
         label:'Animales'
     },
     {
-        routeLink: 'home',
+        routeLink: 'propietarios',
         icon: 'fa fa-male',
         label:'Propietarios'
     },
     {
-        routeLink: 'home',
+        routeLink: 'veterinarios',
         icon: 'fa fa-user-md',
         label:'Veterinarios'
     },
     {
-        routeLink: 'home',
+        routeLink: 'historial',
         icon: 'fa fa-medkit',
         label:'Historial'
     },
     {
-        routeLink: 'home',
+        routeLink: 'contacto',
         icon: 'fa fa-phone-square',
         label:'Contacto'
     }
