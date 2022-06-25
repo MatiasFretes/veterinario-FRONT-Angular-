@@ -1,0 +1,85 @@
+<h1>Propietario</h1>
+<hr>
+
+<div class="row text-right">
+    <div class="col">
+        <button class="btn" routerLink="/propietarios">
+            <i class="fa fa-arrow-left"></i>
+            Regresar
+        </button>
+    </div>
+</div>
+
+<div class="row animated fadeIn faster">
+    <div class="col">
+        <form (ngSubmit)="guardar( f )" #f="ngForm">
+            <div class="form-row">
+                <div class="form-group col-md-6">
+                  <label for="nombre">Nombre</label>
+                  <input  type="text" 
+                          class="form-control" 
+                          id="nombre" 
+                          placeholder="Nombre del propietario"
+                          [(ngModel)] = "propietario.nombre"
+                          name="nombre"
+                          required
+                          >
+                </div>
+                <div class="form-group col-md-6">
+                  <label for="apellido">Apellido</label>
+                  <input  type="text" 
+                          class="form-control" 
+                          id="apellido" 
+                          placeholder="Apellido del propietario"
+                          [(ngModel)] = "propietario.apellido"
+                          name="apellido"
+                          required
+                          >
+                </div>
+              </div>
+              <div class="form-group">
+                <label for="documento">Documento</label>
+                <input  type="text" 
+                        class="form-control" 
+                        id="documento" 
+                        placeholder="Documento del propietario"
+                        [(ngModel)] = "propietario.documento"
+                        name="documento"
+                        required
+                        >
+              </div>
+              <div class="form-row">
+                <div class="form-group col-md-6">
+                  <label for="correo">Correo Electronico</label>
+                  <input  type="email" 
+                          class="form-control" 
+                          id="correo" 
+                          placeholder="Correo del propietario"
+                          [(ngModel)] = "propietario.correo"
+                          name="correo"
+                          required
+                          >
+                </div>
+                <div class="form-group col-md-6">
+                    <label for="telefono">Telefono</label>
+                    <input  type="number" 
+                            class="form-control" 
+                            id="telefono" 
+                            placeholder="Numero de telefono del propietario"
+                            [(ngModel)] = "propietario.telefono"
+                            name="telefono"
+                            required
+                            >
+                  </div>
+              </div>
+
+            <hr>
+            <div class="for-group text-center">
+                <button type="submit" class="btn w-25">
+                    <i class="fa fa-save"></i>
+                    Guardar
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

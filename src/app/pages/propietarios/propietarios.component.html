@@ -1,1 +1,60 @@
-<h1> ------------- Propietarios -----------</h1>
+<h1> Propietarios </h1>
+<hr>
+
+<div class="row">
+    <div class="col text-right">
+        <button routerLink="/propietario/nuevo" class="btn">
+            <i class="fa fa-plus"></i>
+            Agregar
+        </button>
+    </div>
+</div>
+
+<table class="table table-striped mt-3 animated fadeIn faster">
+    <thead>
+      <tr>
+        <th scope="col">Nombre</th>
+        <th scope="col">Apellido</th>
+        <th scope="col">Documento</th>
+        <th scope="col">Correo</th>
+        <th scope="col">Telefono</th>
+        <th scope="col">Acciones</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let propietario of propietarios; let i = index">
+        <td>{{propietario.nombre}}</td>
+        <td>{{propietario.apellido}}</td>
+        <td>{{propietario.documento}}</td>
+        <td>{{propietario.correo}}</td>
+        <td>{{propietario.telefono}}</td>
+        <td>
+          <button class = "btn btn-info mr-1" [routerLink]="['/propietario', propietario.id]">
+            <i class="fa fa-pen" aria-hidden="true"></i>          
+          </button>
+          <button class = "btn btn-danger" 
+            (click)="inactivarPropietario(propietario, i)">
+            <i class="fa fa-trash"></i>
+          </button>
+        </td>
+  
+     </tr>
+    </tbody>
+  </table>
+
+<div *ngIf="!cargando && propietarios.length === 0" class="alert alert-warning text-center mt-3 animated fadeIn faster">
+<h4 class="alert-heading">No hay registros</h4>
+<p>
+    <i class = "fa fa-exclamation fa-2x"></i>
+</p>
+</div>
+
+<div *ngIf="cargando" class="alert alert-info text-center mt-3 animated fadeIn faster">
+    <h4 class="alert-heading">Cargando</h4>
+    <p>
+    <i class = "fa fa-sync-alt fa-spin fa-2x"></i>
+    </p>
+    <p class = "mb-0">
+        Espere por favor
+    </p>
+</div>

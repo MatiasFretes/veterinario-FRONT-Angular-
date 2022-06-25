@@ -11,7 +11,9 @@ import { HomeComponent } from './pages/home/home.component';
 import { PropietariosComponent } from './pages/propietarios/propietarios.component';
 import { VeterinariosComponent } from './pages/veterinarios/veterinarios.component';
 import { HistorialComponent } from './pages/historial/historial.component';
-import { ContactoComponent } from './pages/contacto/contacto.component'; 
+import { ContactoComponent } from './pages/contacto/contacto.component';
+import { PropietarioComponent } from './pages/propietario/propietario.component';
+import { VeterinarioComponent } from './pages/veterinario/veterinario.component'; 
 
 @NgModule({
   declarations: [
@@ -23,7 +25,9 @@ import { ContactoComponent } from './pages/contacto/contacto.component';
     PropietariosComponent,
     VeterinariosComponent,
     HistorialComponent,
-    ContactoComponent
+    ContactoComponent,
+    PropietarioComponent,
+    VeterinarioComponent
   ],
   imports: [
     BrowserModule,

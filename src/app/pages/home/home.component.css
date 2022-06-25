@@ -28,10 +28,12 @@
     display: flex;
     align-items: center;
     height: 180px;
+    border: none;
 }
 
 .card:hover{
-    background: #5a5497;
+    transition: all 0.5s ease 0s;
+    background: #3e3782;
     color: #fff;
     height: 100%;
 }
