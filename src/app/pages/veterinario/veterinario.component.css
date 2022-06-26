@@ -1,0 +1,21 @@
+.text-right .btn{
+    color: #3e3782;
+    background-color: #fff;
+    border-color: black;
+}
+
+.text-right .btn:hover{
+    background-color: #3e3782;
+    color: rgb(255, 255, 255);
+}
+
+.for-group .btn{
+    background-color: #3e3782;
+    color: rgb(255, 255, 255);
+}
+
+.for-group .btn:hover{
+    color: #3e3782;
+    background-color: rgb(255, 255, 255);
+    border-color: black;
+}

@@ -1,1 +1,74 @@
-<p>veterinario works!</p>
+<h1>Veterinario</h1>
+<hr>
+
+<div class="row text-right">
+    <div class="col">
+        <button class="btn" routerLink="/veterinarios">
+            <i class="fa fa-arrow-left"></i>
+            Regresar
+        </button>
+    </div>
+</div>
+
+<div class="row animated fadeIn faster">
+    <div class="col">
+        <form (ngSubmit)="guardar( f )" #f="ngForm">
+            <div class="form-row">
+                <div class="form-group col-md-6">
+                  <label for="nombre">Nombre</label>
+                  <input  type="text" 
+                          class="form-control" 
+                          id="nombre" 
+                          placeholder="Nombre del veterinario"
+                          [(ngModel)] = "veterinario.nombre"
+                          name="nombre"
+                          required
+                          >
+                </div>
+                <div class="form-group col-md-6">
+                  <label for="apellido">Apellido</label>
+                  <input  type="text" 
+                          class="form-control" 
+                          id="apellido" 
+                          placeholder="Apellido del veterinario"
+                          [(ngModel)] = "veterinario.apellido"
+                          name="apellido"
+                          required
+                          >
+                </div>
+              </div>
+              <div class="form-group">
+                <label for="documento">Documento</label>
+                <input  type="text" 
+                        class="form-control" 
+                        id="documento" 
+                        placeholder="Documento del veterinario"
+                        [(ngModel)] = "veterinario.documento"
+                        name="documento"
+                        required
+                        >
+              </div>
+              <div class="form-row">
+                <div class="form-group col-md-6">
+                  <label for="correo">Matricula</label>
+                  <input  type="text" 
+                          class="form-control" 
+                          id="correo" 
+                          placeholder="Matricula del veterinario"
+                          [(ngModel)] = "veterinario.matricula"
+                          name="correo"
+                          required
+                          >
+                </div>
+              </div>
+
+            <hr>
+            <div class="for-group text-center">
+                <button type="submit" class="btn w-25">
+                    <i class="fa fa-save"></i>
+                    Guardar
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

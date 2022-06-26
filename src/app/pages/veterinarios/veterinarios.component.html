@@ -17,28 +17,36 @@
         <th scope="col">Nombre</th>
         <th scope="col">Apellido</th>
         <th scope="col">Documento</th>
-        <th scope="col">Estado</th>
+        <th scope="col">Acciones</th>
       </tr>
     </thead>
     <tbody>
-      <tr>
-        <th scope="row">1</th>
-        <td>Mark</td>
-        <td>Otto</td>
-        <td>@mdo</td>
-        <td>@mdo</td>
+      <tr *ngFor="let veterinario of veterinarios; let i = index">
+        <td>{{veterinario.matricula}}</td>
+        <td>{{veterinario.nombre}}</td>
+        <td>{{veterinario.apellido}}</td>
+        <td>{{veterinario.documento}}</td>
+        <td>
+          <button class = "btn mr-1" [routerLink]="['/veterinario', veterinario.id]">
+            <i class="fa fa-pen" aria-hidden="true"></i>          
+          </button>
+          <button class = "btn" 
+            (click)="inactivarVeterinario(veterinario, i)">
+            <i class="fa fa-trash"></i>
+          </button>
+        </td>
      </tr>
     </tbody>
   </table>
 
-<div class="alert alert-warning text-center mt-3 animated fadeIn faster">
+<div *ngIf="!cargando && veterinarios.length === 0" class="alert alert-warning text-center mt-3 animated fadeIn faster">
 <h4 class="alert-heading">No hay registros</h4>
 <p>
     <i class = "fa fa-exclamation fa-2x"></i>
 </p>
 </div>
 
-<div class="alert alert-info text-center mt-3 animated fadeIn faster">
+<div *ngIf="cargando" class="alert alert-info text-center mt-3 animated fadeIn faster">
     <h4 class="alert-heading">Cargando</h4>
     <p>
     <i class = "fa fa-sync-alt fa-spin fa-2x"></i>

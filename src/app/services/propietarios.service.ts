@@ -17,7 +17,7 @@ export class PropietariosService {
   }
 
   getPropietarios(){
-    return this.http.get(`${this.url}/propietarios`).pipe(delay(1000));
+    return this.http.get(`${this.url}/propietarios`).pipe(delay(500));
   }
 
   getPropietario(id: number){
