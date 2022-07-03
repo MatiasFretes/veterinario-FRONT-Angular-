@@ -1,0 +1,80 @@
+.perfiles .logo img{
+    height: 35%;
+    width: 35%;
+}
+
+.card{
+    background: #3f378200;
+    border: none;
+}
+
+.card .iconos .sci {
+    display: flex;
+    margin-top: 15px;
+}
+
+.card .iconos .sci li{
+    list-style: none;
+}
+
+.card .iconos .sci li a{
+    position: relative;
+    width: 50px;
+    height: 50px;
+    background-color: rgba(236, 233, 253, 0.402);
+    color: #3e3782;
+    margin: 0 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+    border-radius: 50%;
+    font-size: 20px;
+    transition: 0.5s;
+}
+
+.card .iconos .sci li a:hover{
+    color: #fff;
+}
+
+.card .iconos .sci li a .fa{
+    position: relative;
+    z-index: 1000;
+}
+
+.card .iconos .sci li a:before{
+    content: '';
+    position:absolute;
+    width: 100%;
+    height: 100%;
+    background: #3e3782;
+    border-radius: 50%;
+    transform: scale(0);
+    transition: 0.5s;
+}
+
+.card .iconos .sci li a:hover:before{
+    transform: scale(1);
+}
+
+.card .iconos .sci .title{
+    opacity: 0;
+}
+
+.card .iconos .sci li:hover .title{
+    opacity: 1;
+}
+
+.tecnologias .tecno{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin-right: 50px;
+}
+
+.tecnologias .tecno img{
+    height: 100px;
+}
+
+
