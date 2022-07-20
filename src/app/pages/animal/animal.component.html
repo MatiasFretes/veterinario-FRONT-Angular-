@@ -19,7 +19,7 @@
                 class="form-control" 
                 placeholder="Nombre del Animal" 
                 required
-                [(ngModel)] = "animal.nombre"
+                [(ngModel)] = "animalRequest.nombre"
                 name="nombre"
                 >
             </div>
@@ -30,33 +30,33 @@
                 class="form-control" 
                 placeholder="Peso del Animal" 
                 required
-                [(ngModel)] = "animal.peso"
+                [(ngModel)] = "animalRequest.peso"
                 name="peso"
                 >
+            </div>   
+            
+            <div class="form-group">
+                <label for="tipoDeAnimalesSelect">Tipo de animal: </label>
+                <select 
+                    class="form-control" 
+                    id="tipoDeAnimalesSelect"
+                    [(ngModel)] = "animalRequest.id_tipoAnimal"
+                    name="id_tipoAnimal"
+                >
+                    <option selected="true">Seleccionar el tipo</option>
+                </select>
             </div>
 
             <div class="form-group">
-                <label>Imagen: </label>
-                <div class="custom-file">
-                    <input 
-                    (change)="capturarFile($event)"
-                    type="file" 
+                <label for="propietariosSelect">Propietario: </label>
+                <select
                     class="form-control" 
-                    id="imagen"
-                    [(ngModel)] = "animal.imagen"
-                    name="file"
-                    >
-                    
-                </div>
-            </div>
-          
-            <div class="form-group d-flex justify-content-center" *ngIf="!previsualizacion">
-                <img src="assets/drop-images.png">
-            </div>
-
-            <div class="form-group d-flex justify-content-center" *ngIf="previsualizacion">
-                <img [src]="previsualizacion" alt="">
-            </div>
+                    id="propietariosSelect"
+                    [(ngModel)] = "animalRequest.id_propietario"
+                    name="id_propietario"
+                >
+                </select>
+            </div>          
             <hr>
             <div class="for-group text-center">
                 <button type="submit" class="btn w-25">

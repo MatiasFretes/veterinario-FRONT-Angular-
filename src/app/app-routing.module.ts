@@ -10,6 +10,7 @@ import { PropietarioComponent } from './pages/propietario/propietario.component'
 import { PropietariosComponent } from './pages/propietarios/propietarios.component';
 import { VeterinarioComponent } from './pages/veterinario/veterinario.component';
 import { VeterinariosComponent } from './pages/veterinarios/veterinarios.component';
+import { UploadFilesComponent } from './components/upload-files/upload-files.component';
 
 const routes: Routes = [
   {path: 'animales', component: AnimalesComponent},
@@ -21,6 +22,8 @@ const routes: Routes = [
   {path: 'veterinario/:id', component: VeterinarioComponent},
   {path: 'historial', component: HistorialComponent},
   {path: 'contacto', component: ContactoComponent},
+  {path: 'contacto', component: ContactoComponent},
+  {path: 'galeria', component: UploadFilesComponent},
   {path: '**', pathMatch:'full', redirectTo:'home'}
 ]
 

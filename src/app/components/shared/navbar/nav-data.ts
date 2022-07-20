@@ -24,6 +24,11 @@ export const navbarData = [
         icon: 'fa fa-medkit',
         label:'Historial'
     },
+     {
+        routeLink: 'galeria',
+        icon: 'fa fa-camera-retro',
+        label:'Galeria'
+    },
     {
         routeLink: 'contacto',
         icon: 'fa fa-phone-square',

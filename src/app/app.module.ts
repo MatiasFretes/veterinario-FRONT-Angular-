@@ -13,7 +13,13 @@ import { VeterinariosComponent } from './pages/veterinarios/veterinarios.compone
 import { HistorialComponent } from './pages/historial/historial.component';
 import { ContactoComponent } from './pages/contacto/contacto.component';
 import { PropietarioComponent } from './pages/propietario/propietario.component';
-import { VeterinarioComponent } from './pages/veterinario/veterinario.component'; 
+import { VeterinarioComponent } from './pages/veterinario/veterinario.component';
+import { UploadFilesComponent } from './components/upload-files/upload-files.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations'; 
+import {MatProgressBarModule} from '@angular/material/progress-bar';
+import {MatButtonModule} from '@angular/material/button';
+import {MatCardModule} from '@angular/material/card';
+import {MatIconModule} from '@angular/material/icon';
 
 @NgModule({
   declarations: [
@@ -27,13 +33,19 @@ import { VeterinarioComponent } from './pages/veterinario/veterinario.component'
     HistorialComponent,
     ContactoComponent,
     PropietarioComponent,
-    VeterinarioComponent
+    VeterinarioComponent,
+    UploadFilesComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    HttpClientModule
+    HttpClientModule,
+    BrowserAnimationsModule,
+    MatProgressBarModule,
+    MatButtonModule,
+    MatCardModule,
+    MatIconModule
   ],
   providers: [],
   bootstrap: [AppComponent]

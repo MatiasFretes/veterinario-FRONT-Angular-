@@ -1,8 +1,14 @@
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
-import { DomSanitizer } from '@angular/platform-browser';
-import { AnimalModel } from 'src/app/models/animal.model';
+import { ActivatedRoute } from '@angular/router';
+import { AnimalModelRequest, AnimalModelResponse } from 'src/app/models/animal.model';
+import { TipoAnimalModel } from 'src/app/models/tipoAnimal.model';
 import { AnimalesService } from 'src/app/services/animales.service';
+import Swal from 'sweetalert2';
+import { Observable } from 'rxjs';
+import { TipoAnimalesService } from 'src/app/services/tipo-animales.service';
+import { PropietariosService } from 'src/app/services/propietarios.service';
+import { PropietarioModel } from 'src/app/models/propietario.model';
 
 @Component({
   selector: 'app-animal',
@@ -11,57 +17,112 @@ import { AnimalesService } from 'src/app/services/animales.service';
 })
 export class AnimalComponent implements OnInit {
 
-  public previsualizacion : string = "";
-  public archivos: any = [];
-  animal = new AnimalModel();
+  animalRequest = new AnimalModelRequest();
+  animalResponse = new AnimalModelResponse();
+  error: boolean;
 
-  constructor( private animalService: AnimalesService, private sanitizer: DomSanitizer) { }
+  constructor(private animalService : AnimalesService, private route: ActivatedRoute,
+    private tipoAnimalesService : TipoAnimalesService,
+    private propietarioService : PropietariosService) { 
+    this.error = false;
+  }
 
-  ngOnInit(): void {
+  ngOnInit(): void { 
+
+
+    const id = this.route.snapshot.paramMap.get('id') || '';
+
+    if(id === 'nuevo') { 
+      this.tipoAnimalesService.getTipoAnimales().subscribe((resp: any) => {
+        CargarSelectTipoAnimales(resp, 0);
+      });
+  
+      this.propietarioService.getPropietarios().subscribe((resp: any) => {
+        CargarSelectPropietarios(resp, 0);
+      });
+    }
+
+    if( id !== 'nuevo' ) {
+        this.animalService.getAnimal(Number(id))
+        .subscribe( (resp: any) => {
+          
+          this.animalResponse = resp;
+          this.animalResponse.id = Number(id);
+
+          var idTipoAnimal : any = this.animalResponse.tipo?.id; 
+          this.tipoAnimalesService.getTipoAnimales().subscribe((resp: any) => {
+            CargarSelectTipoAnimales(resp, idTipoAnimal);
+          });
+      
+          var idPropietario : any = this.animalResponse.propietario?.id;
+          this.propietarioService.getPropietarios().subscribe((resp: any) => {
+            CargarSelectPropietarios(resp, idPropietario);
+          }); 
+
+        });
+    }
   }
 
   guardar( form: NgForm){
-    console.log(form);
-    console.log(this.animal);
+    if(form.invalid){
+      Object.values(form.controls).forEach(control => {
+        control.markAllAsTouched();
+      })
+      return;
+    }
+    Swal.fire({
+      title: 'Espere',
+      text:'Guardando información',
+      icon: 'info',
+      allowOutsideClick:false
+    });
+    Swal.showLoading();
 
-    this.animalService.crearAnimal( this.animal)
-    .subscribe(resp => {
-      console.log(resp);
+    let peticion: Observable<any>;
+
+    if ( this.animalRequest.id ) {
+      console.log(this.animalRequest);
+      peticion = this.animalService.editarAnimal( this.animalRequest );
+    } else {
+      peticion = this.animalService.crearAnimal( this.animalRequest );
+    }
+
+    peticion.subscribe(resp => {
+      Swal.fire({
+        title: this.animalRequest.nombre,
+        text: 'Se actualizó correctamente',
+        icon: 'success'
+      });
     });
   }
+}
 
-  capturarFile(event : any): any {
-    const archivoCapturado = event.target.files[0]
-    this.extraerBase64(archivoCapturado).then((imagen: any) => {
-      this.previsualizacion = imagen.base;
-      console.log(imagen);
+function CargarSelectTipoAnimales(variedades: TipoAnimalModel[] = [], idTipo:number){
+  const select = document.querySelector('#tipoDeAnimalesSelect');
+  variedades.forEach((variedad:any) => {        
+      let opt = document.createElement('option');
+      opt.value = variedad.id; 
+      opt.text = variedad.descripcion;
 
-    })
-    this.archivos.push(archivoCapturado)
-    // 
-    // console.log(event.target.files);
+      if(variedad.id === idTipo)
+        opt.selected = true;
 
-  }
+      if(select != null)
+        select.appendChild(opt)
+  });
+}
 
-  extraerBase64 = async ($event: any) => new Promise((resolve) => {
-    try {
-      const unsafeImg = window.URL.createObjectURL($event);
-      const image = this.sanitizer.bypassSecurityTrustUrl(unsafeImg);
-      const reader = new FileReader();
-      reader.readAsDataURL($event);
-      reader.onload = () => {
-        resolve({
-          base: reader.result
-        });
-      };
-      reader.onerror = error => {
-        resolve({
-          base: null
-        });
-      };
+function CargarSelectPropietarios(variedades: PropietarioModel[] = [], idProp:number){
+  const select = document.querySelector('#propietariosSelect');
+  variedades.forEach((variedad:any) => {        
+      let opt = document.createElement('option');
+      opt.value = variedad.id; 
+      opt.text = variedad.documento + " - " + variedad.apellido + ", " + variedad.nombre;
+      
+      if(variedad.id === idProp)
+        opt.selected = true;
 
-    } catch (e) {
-      //return null;
-    }
-  })
+      if(select != null)
+        select.appendChild(opt)
+  });
 }

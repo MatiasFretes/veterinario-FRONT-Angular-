@@ -11,35 +11,53 @@
     </div>
 </div>
 
-<div class="card-columns animated fadeIn faster">
-    <div class="card" style="width: 18rem;">
-        <div class="pic">
-            <img class="img-fluid" src="https://img.freepik.com/foto-gratis/perro-pug-aislado-fondo-blanco_2829-11416.jpg?w=2000" alt="Card image cap">
-            <h5 class="title">Thor</h5>
-        </div>
-        <div class="content">
-          <h5 class="card-title">Thor</h5>
-          <p class="card-text">Peso: 8 kg</p>
-          <a href="#" class="btn btn-primary">Ver perfil</a>
-        </div>
-    </div>
-    
-</div>
+<table class="table table-striped mt-3 animated fadeIn faster">
+    <thead>
+      <tr>
+        <th scope="col">Alta</th>
+        <th scope="col">Nombre</th>
+        <th scope="col">Peso</th>
+        <th scope="col">#Propietario</th>
+        <th scope="col">Tipo</th>
+        <th scope="col">Acciones</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let animal of animales; let i = index">
+        <td>{{animal.fechaCreacion}}</td>
+        <td>{{animal.nombre}}</td>
+        <td>{{animal.peso}}</td>
+        <td>{{animal.propietario?.documento}}</td>
+        <td>{{animal.tipo?.descripcion}}</td>
+
+        <td>
+          <button class = "btn mr-1" [routerLink]="['/animal', animal.id]">
+            <i class="fa fa-pen" aria-hidden="true"></i>          
+          </button>
+          <button class = "btn" 
+            (click)="inactivarAnimal(animal, i)">
+            <i class="fa fa-trash"></i>
+          </button>
+        </td>
+  
+     </tr>
+    </tbody>
+  </table>
 
 
-<div class="alert alert-warning text-center mt-3 animated fadeIn faster">
+  <div *ngIf="!cargando && animales.length === 0" class="alert alert-warning text-center mt-3 animated fadeIn faster">
     <h4 class="alert-heading">No hay registros</h4>
     <p>
         <i class = "fa fa-exclamation fa-2x"></i>
     </p>
-</div>
-
-  <div class="alert alert-info text-center mt-3 animated fadeIn faster">
-      <h4 class="alert-heading">Cargando</h4>
-      <p>
+    </div>
+    
+    <div *ngIf="cargando" class="alert alert-info text-center mt-3 animated fadeIn faster">
+        <h4 class="alert-heading">Cargando</h4>
+        <p>
         <i class = "fa fa-sync-alt fa-spin fa-2x"></i>
-      </p>
-      <p class = "mb-0">
-          Espere por favor
-      </p>
-  </div>
+        </p>
+        <p class = "mb-0">
+            Espere por favor
+        </p>
+    </div>
