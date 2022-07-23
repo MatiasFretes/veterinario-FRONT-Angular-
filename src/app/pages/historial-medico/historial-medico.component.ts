@@ -64,7 +64,6 @@ export class HistorialMedicoComponent implements OnInit {
   }
 
   guardar( form: NgForm){
-    console.log(form);
     if(form.invalid){
       Object.values(form.controls).forEach(control => {
         control.markAllAsTouched();

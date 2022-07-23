@@ -2,13 +2,14 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { PropietarioModel } from '../models/propietario.model';
 import { delay } from 'rxjs/operators'; 
+import { environment } from 'src/environments/environment';
 
 @Injectable({
   providedIn: 'root'
 })
 export class PropietariosService {
 
-  private url = 'http://localhost:8080/api/v1'
+  private url = environment.baseUrl;
 
   constructor( private http: HttpClient ) { }
 
