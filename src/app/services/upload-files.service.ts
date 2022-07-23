@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+/**import { Injectable } from '@angular/core';
 import { environment } from '../../environments/environment';
 import { HttpClient, HttpRequest, HttpEvent,HttpParams} from '@angular/common/http';
 import { Observable } from 'rxjs';
@@ -36,4 +36,4 @@ export class UploadFilesService {
     return this.http.get(`${this.baseUrl}/delete/${filename}`);
   }
 
-}
+}*/

@@ -10,16 +10,16 @@ import { NavbarComponent } from './components/shared/navbar/navbar.component';
 import { HomeComponent } from './pages/home/home.component';
 import { PropietariosComponent } from './pages/propietarios/propietarios.component';
 import { VeterinariosComponent } from './pages/veterinarios/veterinarios.component';
-import { HistorialComponent } from './pages/historial/historial.component';
+import { HistorialComponent } from './pages/historiales/historial.component';
 import { ContactoComponent } from './pages/contacto/contacto.component';
 import { PropietarioComponent } from './pages/propietario/propietario.component';
 import { VeterinarioComponent } from './pages/veterinario/veterinario.component';
-import { UploadFilesComponent } from './components/upload-files/upload-files.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations'; 
 import {MatProgressBarModule} from '@angular/material/progress-bar';
 import {MatButtonModule} from '@angular/material/button';
 import {MatCardModule} from '@angular/material/card';
 import {MatIconModule} from '@angular/material/icon';
+import { HistorialMedicoComponent } from './pages/historial-medico/historial-medico.component';
 
 @NgModule({
   declarations: [
@@ -34,7 +34,7 @@ import {MatIconModule} from '@angular/material/icon';
     ContactoComponent,
     PropietarioComponent,
     VeterinarioComponent,
-    UploadFilesComponent
+    HistorialMedicoComponent
   ],
   imports: [
     BrowserModule,

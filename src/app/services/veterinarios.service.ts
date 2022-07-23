@@ -2,13 +2,14 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { delay } from 'rxjs/operators'; 
 import { VeterinarioModel } from '../models/veterinario.model';
+import { environment } from 'src/environments/environment';
 
 @Injectable({
   providedIn: 'root'
 })
 export class VeterinariosService {
 
-  private url = 'http://localhost:8080/api/v1'
+  private url = environment.baseUrl;
 
   constructor( private http: HttpClient ) { }
 

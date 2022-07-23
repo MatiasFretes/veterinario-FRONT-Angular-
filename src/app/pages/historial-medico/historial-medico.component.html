@@ -1,0 +1,61 @@
+<h1>Historia</h1>
+<hr>
+
+<div class="row text-right">
+    <div class="col">
+        <button class="btn" routerLink="/historial">
+            <i class="fa fa-arrow-left"></i>
+            Regresar
+        </button>
+    </div>
+</div>
+
+<div class="row animated fadeIn faster">
+    <div class="col">
+        <form (ngSubmit)="guardar( f )" #f="ngForm">
+            <div class="form-row">
+                <div class="form-group col-md-6">
+                  <label for="animalSelect">Animal</label>
+                  <select 
+                      class="form-control" 
+                      id="animalSelect"
+                      name="id_animal"
+                      [(ngModel)] = "historialRequest.id_animal"
+                  >
+                  <option selected="true">Seleccionar el animal</option>
+                    </select>
+                </div>
+                <div class="form-group col-md-6">
+                  <label for="veterinarioSelect">Veterinario</label>
+                  <select 
+                      class="form-control" 
+                      id="veterinarioSelect"
+                      name="id_veterinario"
+                      [(ngModel)] = "historialRequest.id_veterinario"
+                  >
+                      <option selected="true">Seleccionar el veterinario</option>
+                  </select>
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label for="exampleFormControlTextarea1">Descripción</label>
+                <textarea 
+                    class="form-control" 
+                    id="exampleFormControlTextarea1" 
+                    rows="10"
+                    name="descripcion"
+                    [(ngModel)] = "historialRequest.descripcion"
+                ></textarea>
+              </div>
+
+            <hr>
+            <div class="for-group text-center">
+                <button type="submit" class="btn w-25">
+                    <i class="fa fa-save"></i>
+                    Guardar
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

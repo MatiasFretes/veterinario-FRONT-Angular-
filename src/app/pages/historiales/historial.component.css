@@ -1,0 +1,20 @@
+.text-right .btn{
+    background-color: #3e3782;
+    color: #fff;
+}
+
+.text-right .btn:hover{
+    color: #3e3782;
+    background-color: rgb(255, 255, 255);
+    border-color: black;
+}
+
+.btn{
+    color: #3e3782;
+    border-color: rgb(202, 202, 202);
+    background-color: rgb(255, 255, 255);
+}
+
+.btn:hover{
+    background-color: rgba(255, 255, 255, 0);
+}

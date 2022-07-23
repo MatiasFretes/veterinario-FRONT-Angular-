@@ -46,6 +46,9 @@ export class AnimalComponent implements OnInit {
         this.animalService.getAnimal(Number(id))
         .subscribe( (resp: any) => {
           
+          this.animalRequest = resp;
+          this.animalRequest.id_tipoAnimal = resp.tipo.id;
+          this.animalRequest.id_propietario = resp.propietario.id;
           this.animalResponse = resp;
           this.animalResponse.id = Number(id);
 

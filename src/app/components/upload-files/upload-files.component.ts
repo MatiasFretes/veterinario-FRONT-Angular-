@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+/**import { Component, OnInit } from '@angular/core';
 import { UploadFilesService } from '../../services/upload-files.service';
 import { Observable } from 'rxjs';
 import { HttpEventType, HttpResponse } from '@angular/common/http';
@@ -54,4 +54,4 @@ export class UploadFilesComponent implements OnInit {
     });
   }
 
-}
+}*/
