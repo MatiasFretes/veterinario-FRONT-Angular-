@@ -1,3 +1,6 @@
 body{
     background: rgb(245, 246, 255);
+    position: relative;
+    padding-bottom: 3rem;
+    min-height: 100vh;
 }

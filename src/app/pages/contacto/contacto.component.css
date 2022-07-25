@@ -77,4 +77,14 @@
     height: 100px;
 }
 
+@media screen and (max-width: 800px){
+    .tecnologias, .perfiles{
+        display: flex;
+        flex-direction: column;
+        margin-left: 50px;
+    }
 
+    h1, h3{
+        margin-left: 50px;
+    }
+}

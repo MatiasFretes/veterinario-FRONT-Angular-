@@ -20,6 +20,7 @@ import {MatButtonModule} from '@angular/material/button';
 import {MatCardModule} from '@angular/material/card';
 import {MatIconModule} from '@angular/material/icon';
 import { HistorialMedicoComponent } from './pages/historial-medico/historial-medico.component';
+import { FooterComponent } from './components/shared/footer/footer.component';
 
 @NgModule({
   declarations: [
@@ -34,7 +35,8 @@ import { HistorialMedicoComponent } from './pages/historial-medico/historial-med
     ContactoComponent,
     PropietarioComponent,
     VeterinarioComponent,
-    HistorialMedicoComponent
+    HistorialMedicoComponent,
+    FooterComponent
   ],
   imports: [
     BrowserModule,
