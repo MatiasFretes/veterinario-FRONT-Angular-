@@ -19,3 +19,12 @@
     background-color: rgb(255, 255, 255);
     border-color: black;
 }
+
+@media screen and (max-width: 600px){
+    .col, h1{
+        margin-left: 50px;
+    }
+    .text-right .btn{
+        text-align: left;
+    }
+}

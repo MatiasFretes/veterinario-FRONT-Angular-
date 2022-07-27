@@ -23,3 +23,12 @@
 textarea.form-control{
     width: auto;
 }
+
+@media screen and (max-width: 600px){
+    .col, h1{
+        margin-left: 50px;
+    }
+    .text-right .btn{
+        text-align: left;
+    }
+}
