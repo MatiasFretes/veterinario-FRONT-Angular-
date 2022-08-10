@@ -84,7 +84,6 @@ export class AnimalComponent implements OnInit {
     let peticion: Observable<any>;
 
     if ( this.animalRequest.id ) {
-      console.log(this.animalRequest);
       peticion = this.animalService.editarAnimal( this.animalRequest );
     } else {
       peticion = this.animalService.crearAnimal( this.animalRequest );

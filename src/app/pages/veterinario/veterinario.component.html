@@ -22,8 +22,13 @@
                           placeholder="Nombre del veterinario"
                           [(ngModel)] = "veterinario.nombre"
                           name="nombre"
+                          [class.is-invalid]="nombre.invalid && nombre.touched"
                           required
+                          #nombre="ngModel"
+                          minlength="3"
                           >
+                          <small *ngIf="nombre.invalid && nombre.touched"
+                          class="form-text text-danger">El nombre debe contener al menos 3 letras</small>
                 </div>
                 <div class="form-group col-md-6">
                   <label for="apellido">Apellido</label>
@@ -32,9 +37,14 @@
                           id="apellido" 
                           placeholder="Apellido del veterinario"
                           [(ngModel)] = "veterinario.apellido"
+                          [class.is-invalid]="apellido.invalid && apellido.touched"
                           name="apellido"
                           required
+                          #apellido="ngModel"
+                          minlength="3"
                           >
+                          <small *ngIf="apellido.invalid && apellido.touched"
+                          class="form-text text-danger">El apellido debe contener al menos 3 letras</small>
                 </div>
               </div>
               <div class="form-group">
@@ -44,21 +54,35 @@
                         id="documento" 
                         placeholder="Documento del veterinario"
                         [(ngModel)] = "veterinario.documento"
+                        [class.is-invalid]="documento.invalid && documento.touched"
                         name="documento"
                         required
+                        #documento="ngModel"
+                        minlength="7"
+                        maxlength="8"
+                        pattern="^[0-9]+"
                         >
+                        <small *ngIf="documento.invalid && documento.touched"
+                          class="form-text text-danger">El documento debe 7 u 8 dígitos</small>
               </div>
               <div class="form-row">
                 <div class="form-group col-md-6">
-                  <label for="correo">Matricula</label>
+                  <label for="matricula">Matricula</label>
                   <input  type="text" 
                           class="form-control" 
-                          id="correo" 
+                          id="matricula" 
                           placeholder="Matricula del veterinario"
                           [(ngModel)] = "veterinario.matricula"
-                          name="correo"
+                          [class.is-invalid]="matricula.invalid && matricula.touched"
+                          name="matricula"
                           required
+                          minlength="5"
+                          maxlength="5"
+                          #matricula="ngModel"
+                          pattern="^[0-9]+"
                           >
+                          <small *ngIf="matricula.invalid && matricula.touched"
+                            class="form-text text-danger">La matricula debe contener 5 dígitos</small>
                 </div>
               </div>
 

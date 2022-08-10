@@ -23,7 +23,12 @@
                           [(ngModel)] = "propietario.nombre"
                           name="nombre"
                           required
+                          [class.is-invalid]="nombre.invalid && nombre.touched"
+                          #nombre="ngModel"
+                          minlength="3"
                           >
+                          <small *ngIf="nombre.invalid && nombre.touched"
+                          class="form-text text-danger">El nombre debe contener al menos 3 letras</small>
                 </div>
                 <div class="form-group col-md-6">
                   <label for="apellido">Apellido</label>
@@ -33,8 +38,13 @@
                           placeholder="Apellido del propietario"
                           [(ngModel)] = "propietario.apellido"
                           name="apellido"
+                          [class.is-invalid]="apellido.invalid && apellido.touched"
                           required
+                          #apellido="ngModel"
+                          minlength="3"
                           >
+                          <small *ngIf="apellido.invalid && apellido.touched"
+                          class="form-text text-danger">El apellido debe contener al menos 3 letras</small>
                 </div>
               </div>
               <div class="form-group">
@@ -45,8 +55,15 @@
                         placeholder="Documento del propietario"
                         [(ngModel)] = "propietario.documento"
                         name="documento"
+                        [class.is-invalid]="documento.invalid && documento.touched"
                         required
+                        #documento="ngModel"
+                        minlength="7"
+                        maxlength="8"
+                        pattern="^[0-9]+"
                         >
+                        <small *ngIf="documento.invalid && documento.touched"
+                          class="form-text text-danger">El documento debe 7 u 8 dígitos</small>
               </div>
               <div class="form-row">
                 <div class="form-group col-md-6">
@@ -56,20 +73,32 @@
                           id="correo" 
                           placeholder="Correo del propietario"
                           [(ngModel)] = "propietario.correo"
+                          [class.is-invalid]="correo.invalid && correo.touched"
                           name="correo"
                           required
+                          pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$"
+                          #correo="ngModel"
                           >
+                          <small *ngIf="correo.invalid && correo.touched"
+                          class="form-text text-danger">Formato de correo no valido</small>
                 </div>
                 <div class="form-group col-md-6">
                     <label for="telefono">Telefono</label>
-                    <input  type="number" 
+                    <input  type="text" 
                             class="form-control" 
                             id="telefono" 
                             placeholder="Numero de telefono del propietario"
                             [(ngModel)] = "propietario.telefono"
+                            [class.is-invalid]="telefono.invalid && telefono.touched"
                             name="telefono"
                             required
+                            minlength="10"
+                            maxlength="10"
+                            #telefono="ngModel"
+                            pattern="^[0-9]+"
                             >
+                            <small *ngIf="telefono.invalid && telefono.touched"
+                            class="form-text text-danger">El telefono debe contener 10 dígitos</small>
                   </div>
               </div>
 

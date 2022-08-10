@@ -18,10 +18,14 @@
                 <input type="text" 
                 class="form-control" 
                 placeholder="Nombre del Animal" 
-                required
+                [class.is-invalid]="nombre.invalid && nombre.touched"
+                required title="Campo obligatorio"
                 [(ngModel)] = "animalRequest.nombre"
                 name="nombre"
-                >
+                minlength="3"
+                #nombre="ngModel">
+                <small *ngIf="nombre.invalid && nombre.touched"
+                class="form-text text-danger">El nombre debe contener al menos 3 letras</small>
             </div>
 
             <div class="form-group">
@@ -30,9 +34,15 @@
                 class="form-control" 
                 placeholder="Peso del Animal" 
                 required
+                [class.is-invalid]="peso.invalid && peso.touched"
                 [(ngModel)] = "animalRequest.peso"
                 name="peso"
+                minlength="1"
+                #peso="ngModel"
                 >
+                <small *ngIf="peso.invalid && peso.touched"
+                class="form-text text-danger">El peso debe tener al menos un dígito</small>
+
             </div>   
             
             <div class="form-group">
@@ -40,11 +50,17 @@
                 <select 
                     class="form-control" 
                     id="tipoDeAnimalesSelect"
+                    [class.is-invalid]="id_tipoAnimal.invalid && id_tipoAnimal.touched"
                     [(ngModel)] = "animalRequest.id_tipoAnimal"
                     name="id_tipoAnimal"
+                    required
+                    minlength="1"
+                    #id_tipoAnimal="ngModel"
                 >
-                    <option selected="true">Seleccionar el tipo</option>
+                    <option hidden>Seleccionar el tipo</option>
                 </select>
+                <small *ngIf="id_tipoAnimal.invalid && id_tipoAnimal.touched"
+                class="form-text text-danger">Debe seleccionar un tipo de animal</small>
             </div>
 
             <div class="form-group">
@@ -52,10 +68,17 @@
                 <select
                     class="form-control" 
                     id="propietariosSelect"
+                    [class.is-invalid]="id_propietario.invalid && id_propietario.touched"
                     [(ngModel)] = "animalRequest.id_propietario"
                     name="id_propietario"
+                    required
+                    minlength="1"
+                    #id_propietario="ngModel"
                 >
+                    <option hidden>Seleccionar propietario</option>
                 </select>
+                <small *ngIf="id_propietario.invalid && id_propietario.touched"
+                class="form-text text-danger">Debe seleccionar un propietario</small>
             </div>          
             <hr>
             <div class="for-group text-center">

@@ -21,9 +21,15 @@
                       id="animalSelect"
                       name="id_animal"
                       [(ngModel)] = "historialRequest.id_animal"
+                      [class.is-invalid]="id_animal.invalid && id_animal.touched"
+                      required=""
+                      minlength="1"
+                      #id_animal="ngModel"
                   >
-                  <option selected="true">Seleccionar el animal</option>
-                    </select>
+                  <option hidden>Seleccionar el animal</option>
+                  </select>
+                  <small *ngIf="id_animal.invalid && id_animal.touched"
+                         class="form-text text-danger">Debe seleccionar un animal</small>
                 </div>
                 <div class="form-group col-md-6">
                   <label for="veterinarioSelect">Veterinario</label>
@@ -32,9 +38,15 @@
                       id="veterinarioSelect"
                       name="id_veterinario"
                       [(ngModel)] = "historialRequest.id_veterinario"
+                      [class.is-invalid]="id_veterinario.invalid && id_veterinario.touched"
+                      required=""
+                      minlength="1"
+                      #id_veterinario="ngModel"
                   >
-                      <option selected="true">Seleccionar el veterinario</option>
+                      <option hidden>Seleccionar el veterinario</option>
                   </select>
+                  <small *ngIf="id_veterinario.invalid && id_veterinario.touched"
+                        class="form-text text-danger">Debe seleccionar un veterinario</small>
                 </div>
             </div>
 
@@ -49,7 +61,14 @@
                     cols = "62"
                     name="descripcion"
                     [(ngModel)] = "historialRequest.descripcion"
+                    [class.is-invalid]="descripcion.invalid && descripcion.touched"
+                    required
+                    minlength="1"
+                    #descripcion="ngModel"
                     ></textarea>
+
+                    <small *ngIf="descripcion.invalid && descripcion.touched"
+                         class="form-text text-danger">Completar una descripcion</small>
                 </div>
               </div>
 
